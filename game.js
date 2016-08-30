@@ -3,9 +3,11 @@ var height;
 var width;
 var obstacles = [];
 var mySound;
+var saut;
 
 function startGame() {
     mySound = new sound("boom.mp3");
+    saut = new sound("saut.m4a");
     Game.start();
     player = new component(width/20, width/20, "combefis.png", 100, 100, "player");
 }
@@ -97,7 +99,8 @@ function updateGameArea() {
     addObstacle(200);
     player.jump = 0;
     player.gravity = 0;
-    if (Game.key && Game.key == 32) { 
+    if (Game.key && Game.key == 32) {
+        saut.play();
         if(player.y-10 >=0)
          player.jump -= 10;
     } 
